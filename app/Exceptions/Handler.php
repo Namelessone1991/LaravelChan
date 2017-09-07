@@ -48,6 +48,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+        //added error handling methodologies so that it handles files that are too big 
+
+        if ($exception instanceof \Illuminate\Http\Exceptions\PostTooLargeException) {
+            return response()->view('errors.postTooLarge');
+        }
+
         return parent::render($request, $exception);
     }
 }

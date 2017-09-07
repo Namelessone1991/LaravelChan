@@ -48,9 +48,9 @@
 
 <img src="/uploads/images/{{$thread->image}}" alt="OP image" class ="img-thumbnail" height = "300" width = "300">
 </div>
-<h2>{{$thread->title}}</h2> <br>
+<h2 class = "text-success">{{$thread->title}}</h2> <br>
 
-  <pre>{{$thread->comment}}</pre>
+  <span class = "text-muted">{{$thread->comment}}</span>
        </div>
 </div>
 
@@ -61,12 +61,16 @@
 <div class = "panel panel-default">
   <div class = "panel-body">
 
+@if(!is_null($threadPost->image))
   <div class = "pull-left">
+
 
 <img src="/uploads/images/{{$threadPost->image}}" alt="OP image" class ="img-thumbnail" height = "300" width = "300">
 </div>
-<h2>{{$threadPost->title}}</h2><br>
-<pre>{{$threadPost->comment}}</pre>
+@endif 
+
+<h2 class = "text-success">{{$threadPost->title}}</h2><br>
+<span class = "text-muted">{{$threadPost->comment}}</span>
 
   </div>
 

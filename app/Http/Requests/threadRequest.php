@@ -26,7 +26,7 @@ class threadRequest extends FormRequest
         return [
         
         'comment'=>'required',
-        'image'=>'required'
+        'image'=>'required|dimensions:max_width=3000,max_height:3000'
 
         ];
     }

@@ -84,15 +84,30 @@ public function postComment($thread,postRequest $postRequest)
 
          $image = $request->file('image');
 
+
+
+         $height =  Image::make($image)->height();  
+         
+         $width = Image::make($image)->width();
+         
+         
+         if(($height>=3000) ||($width >= 3000))
+         {
+
+            return view('errors.postTooLarge');
+
+         }
+
+
+
          $filename = time().'.'.$image->getClientOriginalExtension(); 
          Image::make($image)->save(public_path('/uploads/images/'.$filename));
          
-        $height =   Image::make($image)->height();  
-
-        $width = Image::make($image)->width();
+        
         
         
        
+
 
 
          $thread->title = $request->title; 
